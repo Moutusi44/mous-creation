@@ -25,19 +25,22 @@ async function api(url, opts) {
   if (!document.querySelector('.section-categories')) return;
 
   var categories = [
-    { icon: '&#128092;', name: 'Handbags', slug: 'handbags', desc: 'Trendy handbags for every occasion' },
-    { icon: '&#128087;', name: 'Purses', slug: 'purses', desc: 'Elegant clutches and wallets' },
-    { icon: '&#128142;', name: 'Jewelry', slug: 'jewelry', desc: 'Beautiful necklaces, earrings & more' },
-    { icon: '&#127911;', name: 'Toys', slug: 'toys', desc: 'Fun and safe toys for kids' }
+    { icon: '&#128092;', name: 'Handbags', slug: 'handbags', desc: 'Trendy handbags for every occasion', img: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80' },
+    { icon: '&#128087;', name: 'Purses', slug: 'purses', desc: 'Elegant clutches and wallets', img: 'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&q=80' },
+    { icon: '&#128142;', name: 'Jewelry', slug: 'jewelry', desc: 'Beautiful necklaces, earrings & more', img: 'https://images.unsplash.com/photo-1515562141589-677acb0d6280?w=600&q=80' },
+    { icon: '&#127911;', name: 'Toys', slug: 'toys', desc: 'Fun and safe toys for kids', img: 'https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=600&q=80' }
   ];
 
   var grid = document.getElementById('categoriesGrid');
   if (grid) {
     grid.innerHTML = categories.map(function (c) {
       return '<div class="category-card" onclick="window.location=\'products.html?category=' + c.slug + '\'">' +
-        '<div class="category-icon">' + c.icon + '</div>' +
+        '<div class="category-card-bg" style="background-image:url(\'' + c.img + '\')"></div>' +
+        '<div class="category-card-overlay"></div>' +
+        '<div class="category-card-content">' +
+        '<span class="category-icon">' + c.icon + '</span>' +
         '<h3>' + c.name + '</h3>' +
-        '<p>' + c.desc + '</p></div>';
+        '<p>' + c.desc + '</p></div></div>';
     }).join('');
   }
 
