@@ -41,8 +41,26 @@
               <input type="tel" id="customerPhone" required placeholder="Enter your WhatsApp number">
             </div>
             <div class="form-group">
-              <label for="customerAddress">Delivery Address *</label>
-              <textarea id="customerAddress" required placeholder="Enter your full address in Malda or nearby area"></textarea>
+              <label for="deliveryArea">Delivery Area *</label>
+              <select id="deliveryArea" required>
+                <option value="">-- Select your area --</option>
+                <option value="english-bazar">English Bazar (Malda Town)</option>
+                <option value="old-malda">Old Malda</option>
+                <option value="ratua">Ratua</option>
+                <option value="manikchak">Manikchak</option>
+                <option value="kaliachak">Kaliachak</option>
+                <option value="gazole">Gazole</option>
+                <option value="chanchal">Chanchal</option>
+                <option value="harishchandrapur">Harishchandrapur</option>
+                <option value="habibpur">Habibpur</option>
+                <option value="bamangola">Bamangola</option>
+                <option value="other-malda">Other area in Malda district</option>
+              </select>
+              <small style="color:#888;display:block;margin-top:4px">&#x26A0; We currently serve only Malda district, West Bengal</small>
+            </div>
+            <div class="form-group">
+              <label for="customerAddress">Full Delivery Address *</label>
+              <textarea id="customerAddress" required placeholder="Enter your full address with landmark"></textarea>
             </div>
             <div class="form-group">
               <label for="orderItems">Items You Want to Order *</label>
@@ -77,8 +95,9 @@
           </div>
           <div class="info-card">
             <h3>Delivery Info</h3>
-            <p><strong>Area:</strong> Malda and nearby areas, West Bengal</p>
+            <p><strong>Area:</strong> Only <strong>Malda district, West Bengal</strong></p>
             <p><strong>Payment:</strong> Cash on delivery</p>
+            <p style="color:#e84393;font-weight:600;margin-top:8px">&#x26A0; Orders outside Malda will not be accepted</p>
           </div>
           <div class="info-card">
             <h3>Contact Directly</h3>

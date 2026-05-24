@@ -231,10 +231,26 @@ function setupOrderForm() {
     e.preventDefault();
     var name = document.getElementById('customerName').value.trim();
     var phone = document.getElementById('customerPhone').value.trim();
+    var area = document.getElementById('deliveryArea').value;
     var address = document.getElementById('customerAddress').value.trim();
     var notes = document.getElementById('orderNotes').value.trim();
 
-    if (!name || !phone || !address) { alert('Please fill in all required fields.'); return; }
+    if (!name || !phone || !address || !area) { alert('Please fill in all required fields.'); return; }
+
+    var areaNames = {
+      'english-bazar': 'English Bazar (Malda Town)',
+      'old-malda': 'Old Malda',
+      'ratua': 'Ratua',
+      'manikchak': 'Manikchak',
+      'kaliachak': 'Kaliachak',
+      'gazole': 'Gazole',
+      'chanchal': 'Chanchal',
+      'harishchandrapur': 'Harishchandrapur',
+      'habibpur': 'Habibpur',
+      'bamangola': 'Bamangola',
+      'other-malda': 'Other area in Malda district'
+    };
+    var areaLabel = areaNames[area] || area;
 
     var items = [];
     var selects = document.querySelectorAll('.item-select');
@@ -247,6 +263,7 @@ function setupOrderForm() {
     var msg = 'Hi Mou\'s Creation! I want to place an order:%0A%0A' +
       'Name: ' + encodeURIComponent(name) + '%0A' +
       'Phone: ' + encodeURIComponent(phone) + '%0A' +
+      'Area: ' + encodeURIComponent(areaLabel) + '%0A' +
       'Address: ' + encodeURIComponent(address) + '%0A%0A' +
       'Items Ordered:%0A' + items.join('%0A') + '%0A%0A' +
       'Notes: ' + encodeURIComponent(notes || 'None');
