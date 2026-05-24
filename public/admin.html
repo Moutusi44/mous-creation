@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Mou's Creation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Mou's Creation</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="order.html" class="nav-link">Order Online</a>
+        <a href="admin.html" class="nav-link active nav-link-admin">Admin</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section section-page-header">
+    <div class="container">
+      <h1>Admin Panel</h1>
+      <p>Manage your products</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- Login -->
+      <div id="loginSection" class="admin-login">
+        <div class="login-box">
+          <h2>Admin Login</h2>
+          <div class="form-group">
+            <label for="adminPassword">Password</label>
+            <input type="password" id="adminPassword" placeholder="Enter admin password">
+          </div>
+          <button class="btn btn-primary btn-block" onclick="login()">Login</button>
+          <p id="loginError" style="color:#e74c3c;margin-top:10px;display:none"></p>
+        </div>
+      </div>
+
+      <!-- Admin Dashboard -->
+      <div id="adminSection" style="display:none">
+        <div class="admin-header">
+          <h2>Product Management</h2>
+          <button class="btn btn-secondary btn-sm" onclick="logout()">Logout</button>
+        </div>
+
+        <!-- Add Product Form -->
+        <div class="admin-form-card">
+          <h3 id="formTitle">Add New Product</h3>
+          <form id="productForm" class="order-form">
+            <input type="hidden" id="editId">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="productName">Product Name *</label>
+                <input type="text" id="productName" required placeholder="e.g. Leather Handbag">
+              </div>
+              <div class="form-group">
+                <label for="productPrice">Price (₹) *</label>
+                <input type="number" id="productPrice" required min="1" placeholder="e.g. 499">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="productCategory">Category *</label>
+                <select id="productCategory" required>
+                  <option value="">-- Select --</option>
+                  <option value="handbags">Handbags</option>
+                  <option value="purses">Purses</option>
+                  <option value="jewelry">Jewelry</option>
+                  <option value="toys">Toys</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="productImage">Photo</label>
+                <input type="file" id="productImage" accept="image/*">
+                <div id="imagePreview" style="margin-top:8px"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="productDesc">Description</label>
+              <textarea id="productDesc" placeholder="Short description of the product"></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="saveBtn">Add Product</button>
+              <button type="button" class="btn btn-secondary" id="cancelBtn" style="display:none" onclick="cancelEdit()">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Products List -->
+        <div class="admin-list">
+          <h3>All Products</h3>
+          <div id="adminProductsList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

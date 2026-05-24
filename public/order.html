@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Online - Mou's Creation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Mou's Creation</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="order.html" class="nav-link active">Order Online</a>
+        <a href="admin.html" class="nav-link nav-link-admin">Admin</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section section-page-header">
+    <div class="container">
+      <h1>Place Your Order</h1>
+      <p>Fill in the details and we'll get back to you via WhatsApp</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="order-layout">
+        <div class="order-form-container">
+          <form id="orderForm" class="order-form">
+            <div class="form-group">
+              <label for="customerName">Your Name *</label>
+              <input type="text" id="customerName" required placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+              <label for="customerPhone">Phone Number *</label>
+              <input type="tel" id="customerPhone" required placeholder="Enter your WhatsApp number">
+            </div>
+            <div class="form-group">
+              <label for="customerAddress">Delivery Address *</label>
+              <textarea id="customerAddress" required placeholder="Enter your full address in Malda or nearby area"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="orderItems">Items You Want to Order *</label>
+              <div id="itemsContainer">
+                <div class="order-item-row">
+                  <select class="item-select" data-index="0">
+                    <option value="">-- Select item --</option>
+                  </select>
+                  <input type="number" class="item-qty" data-index="0" min="1" value="1" placeholder="Qty">
+                  <button type="button" class="btn-remove-item" onclick="removeItem(this)">&times;</button>
+                </div>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="addItem()">+ Add Another Item</button>
+            </div>
+            <div class="form-group">
+              <label for="orderNotes">Additional Notes</label>
+              <textarea id="orderNotes" placeholder="Color preference, special requests, etc."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="submitOrder">Send Order via WhatsApp</button>
+          </form>
+        </div>
+        <div class="order-info">
+          <div class="info-card">
+            <h3>How It Works</h3>
+            <ol>
+              <li>Fill in your name, phone, and address</li>
+              <li>Select the items you want</li>
+              <li>Click the order button</li>
+              <li>We'll contact you on WhatsApp to confirm</li>
+              <li>Get your order delivered!</li>
+            </ol>
+          </div>
+          <div class="info-card">
+            <h3>Delivery Info</h3>
+            <p><strong>Area:</strong> Malda and nearby areas, West Bengal</p>
+            <p><strong>Payment:</strong> Cash on delivery</p>
+          </div>
+          <div class="info-card">
+            <h3>Contact Directly</h3>
+            <p>Call or WhatsApp:<br>+91-7908376480</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Mou's Creation</h4>
+          <p>Handbags, Purses, Jewelry & Toys<br>Malda, West Bengal</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="order.html">Order Online</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>Phone: +91-7908376480</p>
+          <p>Location: Malda, West Bengal</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Mou's Creation. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
